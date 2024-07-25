@@ -1,17 +1,26 @@
-// import type { HttpContext } from '@adonisjs/core/http'
+import type { HttpContext } from '@adonisjs/core/http'
 
 export default class UsersController {
     /**
      * Returns all users
      */
-    public async index() {
-        return 'All users'
+    async index({response} : HttpContext) {
+        response
+        .status(200)
+        .json({
+            message : 'All users',
+            datas : []
+        })
     }
 
     /**
      * Create a new user in the database
      */
-    public add() {
-        return 'User created'
+    async add({response} : HttpContext) {
+        response
+        .status(201)
+        .json({
+            message : 'User created',      
+        })
     }
 }
